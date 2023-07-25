@@ -1,0 +1,8 @@
+github.com/GoBootcamp/clirescue v0.0.0-20140313044155-cd88ca775ed6 h1:Do91/1/T2lX6GYGLnNlZG54A+mMugvAyvsTMbc+TzCk=
+github.com/GoBootcamp/clirescue v0.0.0-20140313044155-cd88ca775ed6/go.mod h1:Paxdqc4T32AWB14UNmpVScG5MfPJBNUNITlHdNABBhc=
+github.com/codegangsta/cli v1.20.0 h1:iX1FXEgwzd5+XN6wk5cVHOGQj6Q3Dcp20lUeS4lHNTw=
+github.com/codegangsta/cli v1.20.0/go.mod h1:/qJNoX69yVSKu5o4jLyXAENLRyk1uhi7zkbQ3slBdOA=
+github.com/deepakrkris/clirescue v0.0.0-20140313044155-cd88ca775ed6 h1:sRYKesal/SJMToa4X2qA3e7mws4IW/2AtdSov9flgk8=
+github.com/deepakrkris/clirescue v0.0.0-20140313044155-cd88ca775ed6/go.mod h1:LGljQdenlIR+Cbyn8ofiRAMkMr+6UdsompC3mrjwfww=
+golang.org/x/tour v0.1.0 h1:OWzbINRoGf1wwBhKdFDpYwM88NM0d1SL/Nj6PagS6YE=
+golang.org/x/tour v0.1.0/go.mod h1:DUZC6G8mR1AXgXy73r8qt/G5RsefKIlSj6jBMc8b9Wc=

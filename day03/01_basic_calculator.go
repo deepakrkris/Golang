@@ -4,16 +4,11 @@ import (
 	"fmt"
 	"unicode"
 	"strings"
-)
+)	
 
-type Calculator struct {
-	expression string
-	operations []rune
-	operands []int
-	precendence []rune
-}
+type Array[T comparable] []T
 
-func Contains[T comparable] (arr [] T, x T) bool {
+func (arr Array[T]) Contains (x T) bool {
     for _, v := range arr {
         if v == x {
             return true
@@ -22,7 +17,7 @@ func Contains[T comparable] (arr [] T, x T) bool {
     return false
 }
 
-func indexOf[T comparable] (arr [] T, x T) int {
+func (arr Array[T]) indexOf (x T) int {
     for i, v := range arr {
         if v == x {
             return i
@@ -31,20 +26,27 @@ func indexOf[T comparable] (arr [] T, x T) int {
     return -1
 }
 
+type Calculator struct {
+	expression string
+	operations Array[rune]
+	operands []int
+	precendence Array[rune]
+}
+
 func (Calc *Calculator) execute() int {
 	operand := 0
 
 	for _, c := range Calc.expression {
 		if unicode.IsDigit(c) {
 			operand = operand * 10 + (int(c) - '0')
-		} else if Contains(Calc.precendence, c) {
+		} else if Calc.precendence.Contains(c) {
 			//fmt.Println(operand)
 			Calc.operands = append(Calc.operands, operand)
 			operand = 0
 			topIndex := len(Calc.operations) - 1
 			if topIndex >= 0 {
 				top := Calc.operations[topIndex]
-				for len(Calc.operations) > 0 && indexOf(Calc.precendence, c) <= indexOf(Calc.precendence, top) {
+				for len(Calc.operations) > 0 && Calc.precendence.indexOf(c) <= Calc.precendence.indexOf(top) {
 					Calc.operations = Calc.operations[:topIndex]
 					Operand2 := Calc.operands[len(Calc.operands) - 1]
 					Operand1 := Calc.operands[len(Calc.operands) - 2]
@@ -87,11 +89,11 @@ func main() {
 
 		calc := Calculator {
 			expression : data,
-			operations : make([]rune, 0),
+			operations : make(Array[rune], 0),
 			operands : make([]int, 0),
 		}
 	
-		calc.precendence = []rune { '#', '+', '*', }
+		calc.precendence = Array[rune] { '#', '+', '*', }
 		fmt.Print("result is :   ")
 		fmt.Println(calc.execute())
 		fmt.Println(strings.Repeat("_", 20))
